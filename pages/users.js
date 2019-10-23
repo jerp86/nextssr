@@ -1,9 +1,10 @@
 import React from "react";
+import axios from "axios";
 
 import Link from "next/link";
 import Head from "next/head";
 
-import axios from "axios";
+import withAnalytics from "../src/hocs/withAnalytics";
 
 const User = ({ users }) => (
   <div>
@@ -15,7 +16,6 @@ const User = ({ users }) => (
         <li key={user.id}>{user.login}</li>
       ))}
     </ul>
-
     <Link href="/">
       <a>Voltar</a>
     </Link>
@@ -30,4 +30,4 @@ User.getInitialProps = async () => {
   return { users: response.data };
 };
 
-export default User;
+export default withAnalytics()(User);
