@@ -1,10 +1,15 @@
 import React from "react";
+
 import Link from "next/link";
+import Head from "next/head";
 
 import axios from "axios";
 
 const User = ({ users }) => (
   <div>
+    <Head>
+      <title>Usuários</title>
+    </Head>
     <ul>
       {users.map(user => (
         <li key={user.id}>{user.login}</li>
